@@ -1,6 +1,7 @@
 import React from 'react'
+import axios from 'axios'
 
-export default function Dashboard() {
+export default function Dashboard({ code }) {
     return (
         <div>
             
