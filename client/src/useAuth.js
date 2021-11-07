@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from './axios'
+import axios from './helpers/axios'
 
 export default function useAuth(code) {
     const [accessToken, setAccessToken] = useState()
@@ -18,5 +18,7 @@ export default function useAuth(code) {
             console.log(error)
         })
     }, [code])
+
+    
     return accessToken
 }

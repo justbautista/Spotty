@@ -12,7 +12,7 @@ const login = async (req, res) => {
     try {
         const data = await spotifyApi.authorizationCodeGrant(code)
         spotifyApi.setAccessToken(data.body.access_token)
-        spotifyApi.setRefreshToken(data.body.refresh_token)
+        
         res.json({
             accessToken: data.body.access_token,
             refreshToken: data.body.refresh_token,
