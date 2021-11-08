@@ -13,6 +13,15 @@ export default function Login() {
     useEffect(() => {
         setLoading(true)
         const code = new URLSearchParams(window.location.search).get('code')
+        const error = new URLSearchParams(window.location.search).get('error')
+        
+        if (error) {
+            setLoading(false)
+            window.history.pushState({}, null, '/')
+            console.log(error)
+            return
+        }
+
         if (!code) {
             setLoading(false)
             return
