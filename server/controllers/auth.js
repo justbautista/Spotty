@@ -19,7 +19,7 @@ const login = async (req, res) => {
             expiresIn: data.body.expires_in
         })
     } catch (error) {
-        console.log(error)
+        throw error
     }
 }
 

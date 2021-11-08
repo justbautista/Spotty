@@ -1,17 +1,29 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Login from './Login';
 import Dashboard from './Dashboard';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-
-const code = new URLSearchParams(window.location.search).get('code')
+import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
+
+  useEffect(() => {
+    const ifLoggedIn = async () => {
+      try {
+        await checkLoggedIn()
+        setIsLoggedIn(true)
+      } catch (error) {
+        setIsLoggedIn(false)
+      }
+    }
+    ifLoggedIn()
+  }, [])
 
   return (
     <Router>
       <Routes>
-        <Route path='/' element={ <Login code={ code }/> } />
-        <Route path='/dashboard' component={ Dashboard } />
+        <Route path='/' element={ isLoggedIn ? <Navigate to='/dashboard' /> : <Login /> } />
+        <Route path='/dashboard' element={ isLoggedIn ? <Dashboard /> : <Navigate to='/' /> } />
       </Routes>
     </Router>
   )
