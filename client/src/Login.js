@@ -6,6 +6,7 @@ import {
     setLocalAccessToken,
     setLocalRefreshToken
 } from './helpers/local'
+import Loader from './Loader'
 
 export default function Login() {
     const [loading, setLoading] = useState(true)
@@ -41,7 +42,7 @@ export default function Login() {
 
     if (loading) {
         return (
-            <span>Loading</span>
+            <Loader />
         )
     }
 

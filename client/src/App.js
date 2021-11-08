@@ -4,6 +4,7 @@ import Dashboard from './Dashboard';
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { checkLoggedIn } from './helpers/authenticators'
+import Loader from './Loader'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState()
@@ -26,7 +27,7 @@ function App() {
 
   if (loading) {
     return (
-      <span>Loading</span>
+      <Loader />
     )
   }
 
