@@ -11,7 +11,7 @@ app.use(express.json())
 const authRouter = require('./routes/auth')
 
 //routes
-app.use('/login', authRouter)
+app.use('/auth', authRouter)
 
 const port = process.env.PORT || 3001
 app.listen(port)

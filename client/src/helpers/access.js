@@ -11,4 +11,4 @@ const scopes = [
     'user-modify-playback-state'
 ]
 
-export const accessURL = `https://accounts.spotify.com/authorize?client_id=${ clientID }&response_type=code&redirect_uri=${ redirectUri }&scope=${ scopes.join('%20') }`
+export const accessURL = `https://accounts.spotify.com/authorize?client_id=${ clientID }&response_type=code&redirect_uri=${ redirectUri }&scope=${ scopes.join('%20') }&show_dialog=true`
