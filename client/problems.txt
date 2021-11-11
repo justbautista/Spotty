@@ -1,3 +1,0 @@
-double login
-gets to code but doesnt clear href and redirect
-starting server spazzs out

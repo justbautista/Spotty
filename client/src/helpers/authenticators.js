@@ -52,6 +52,7 @@ const checkLoggedIn = async () => {
 
     const spotifyApi = new SpotifyWebApi()
     spotifyApi.setAccessToken(getLocalAccessToken())
+    
     try {
         await spotifyApi.getMe()
         runExpirationTimer()

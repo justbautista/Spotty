@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { checkLoggedIn } from './helpers/authenticators'
 import Loader from './Loader'
+import Nav from './Nav';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState()
@@ -31,11 +32,18 @@ function App() {
     )
   }
 
+  if (!isLoggedIn) {
+    return (
+      <Login />
+    )
+  }
+
   return (
     <Router>
+      <Nav />
       <Routes>
-        <Route path='/' element={ isLoggedIn ? <Navigate to='/dashboard' /> : <Login /> } />
-        <Route path='/dashboard' element={ isLoggedIn ? <Dashboard /> : <Navigate to='/' /> } />
+        <Route path='/dashboard' element={ <Dashboard /> } />
+        {/* create a default route to redirect to home */}
       </Routes>
     </Router>
   )
