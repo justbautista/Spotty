@@ -32,18 +32,20 @@ function App() {
     )
   }
 
-  if (!isLoggedIn) {
-    return (
-      <Login />
-    )
-  }
+  // if (!isLoggedIn) {
+  //   return (
+  //     <Login />
+  //   )
+  // }
 
   return (
     <Router>
-      <Nav />
       <Routes>
-        <Route path='/dashboard' element={ <Dashboard /> } />
-        {/* create a default route to redirect to home */}
+        <Route path='/' element={ isLoggedIn ? <Navigate to='/dashboard' /> : <Login /> } />
+        <Route path='/dashboard' element={ isLoggedIn ? <Nav /> : <Navigate to='/' /> } >
+          <Route path='' element={ <Dashboard /> } />
+          <Route path='playlists' element={ <Dashboard /> } /> 
+        </Route>
       </Routes>
     </Router>
   )
