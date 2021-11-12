@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { checkLoggedIn } from './helpers/authenticators'
 import Loader from './Loader'
 import Nav from './Nav';
+import Dashboard2 from './Dashboard2'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState()
@@ -32,19 +33,13 @@ function App() {
     )
   }
 
-  // if (!isLoggedIn) {
-  //   return (
-  //     <Login />
-  //   )
-  // }
-
   return (
     <Router>
       <Routes>
         <Route path='/' element={ isLoggedIn ? <Navigate to='/dashboard' /> : <Login /> } />
         <Route path='/dashboard' element={ isLoggedIn ? <Nav /> : <Navigate to='/' /> } >
           <Route path='' element={ <Dashboard /> } />
-          <Route path='playlists' element={ <Dashboard /> } /> 
+          <Route path='2' element={ <Dashboard2 /> } /> 
         </Route>
       </Routes>
     </Router>
