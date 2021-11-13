@@ -17,7 +17,7 @@ const getTopTracks = async (req, res) => {
         })
 
         res.json({
-            items: data.body.items
+            topTracks: data.body.items
         })     
     } catch (error) {
         throw error
@@ -41,7 +41,7 @@ const getTopArtists = async (req, res) => {
         })
 
         res.json({
-            items: data.body.items
+            topArtists: data.body.items
         })     
     } catch (error) {
         throw error

@@ -8,7 +8,8 @@ import { getLocalAccessToken } from './helpers/local'
 export default function Dashboard() {
     const [type, setType] = useState('tracks')
     const [timeRange, setTimeRange] = useState('long_term')
-    const [items, setItems] = useState()
+    const [topTracks, setTopTracks] = useState([])
+    const [topArtists, setTopArtists] = useState([])
     const accessToken = getLocalAccessToken()
 
     useEffect(() => {
@@ -16,7 +17,7 @@ export default function Dashboard() {
 
         axios.post('/spotify/topTracks', { timeRange, accessToken })
         .then((res) => {
-            setItems(res.data.items)
+            setTopTracks(res.data.topTracks)
         })
         .catch((error) => {
             return
@@ -28,16 +29,17 @@ export default function Dashboard() {
 
         axios.post('/spotify/topArtists', { timeRange, accessToken })
         .then((res) => {
-            setItems(res.data.items)
+            setTopArtists(res.data.topArtists)
         })
         .catch((error) => {
             return
         })
     }, [type, timeRange])
-    console.log(items)
+    console.log(topTracks)
+    
     return (
         <div>
-            dashboard
+            dashbaord
         </div>
     )
 }
