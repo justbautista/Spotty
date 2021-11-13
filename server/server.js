@@ -9,9 +9,11 @@ app.use(express.json())
 
 //routers
 const authRouter = require('./routes/auth')
+const spotifyRouter = require('./routes/spotify')
 
 //routes
 app.use('/auth', authRouter)
+app.use('/spotify', spotifyRouter)
 
 const port = process.env.PORT || 3001
 app.listen(port)

@@ -50,15 +50,16 @@ const checkLoggedIn = async () => {
         return
     }
 
-    const spotifyApi = new SpotifyWebApi()
-    spotifyApi.setAccessToken(getLocalAccessToken())
+    runExpirationTimer()
+    // const spotifyApi = new SpotifyWebApi()
+    // spotifyApi.setAccessToken(getLocalAccessToken())
     
-    try {
-        await spotifyApi.getMe()
-        runExpirationTimer()
-    } catch (error) {
-        throw error
-    }
+    // try {
+    //     await spotifyApi.getMe()
+    //     runExpirationTimer()
+    // } catch (error) {
+    //     console.log('error')
+    // }
 }
 
 export {
