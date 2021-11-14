@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { checkLoggedIn } from './helpers/authenticators'
 import Loader from './Loader'
 import Nav from './Nav';
+import './index.css'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState()

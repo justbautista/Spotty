@@ -37,20 +37,11 @@ const refresh = async (req, res) => {
         const data = await spotifyApi.refreshAccessToken()
         
         res.json({
-            accessToken: data.body.accessToken
+            accessToken: data.body.access_token
         })
     } catch (error) {
         throw error
     }
-    // spotifyApi.refreshAccessToken()
-    // .then(data => {
-    //     res.json({
-    //         accessToken: data.body.accessToken
-    //     })
-    // })
-    // .catch((error) => {
-    //     throw error
-    // })
 }
 
 module.exports = { login, refresh }

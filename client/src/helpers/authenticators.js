@@ -16,7 +16,7 @@ const logout = () => {
 
 const refreshAccessToken = () => {
     const localRefreshToken = getLocalRefreshToken()
-    
+
     axios.post('/auth/refresh', { localRefreshToken })
     .then(res => {
         setLocalAccessToken(res.data.accessToken)
@@ -47,7 +47,7 @@ const checkLoggedIn = async () => {
 
     if (new Date().getTime() > getExpirationTime()) {
         await refreshAccessToken()
-        window.location.reload()
+        //window.location.reload()
         return
     }
     

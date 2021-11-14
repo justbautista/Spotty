@@ -91,8 +91,11 @@ export default function Dashboard() {
     }
 
     return (
-        <div className='container w-75'>
-            <div className='d-flex flex-row justify-content-between my-3'>
+        <div className='container-fluid' id='top-items-container'>
+            <div className='container-fluid text-center my-5'>
+                <h1 style={{ textTransform: 'capitalize', margin: '0', color: 'white'}}>Top { type }</h1>
+            </div>
+            <div className='d-flex flex-row justify-content-between my-3' style={{ fontSize: '12px' }}>
                 <ul className='nav nav-pills'>
                     <li style={{ cursor: 'pointer' }} className='nav-item'>
                         <a className='nav-link active' id='tracks' onClick={() => {
@@ -123,7 +126,7 @@ export default function Dashboard() {
                     </li>
                 </ul>
             </div>
-            <ul className='list-group list-group-flush'>
+            <ul className='list-group list-group-flush overflow-auto' style={{ height: '100%' }}>
                 {
                     type == 'tracks' ?
                     topTracks.map((track, index) => (
