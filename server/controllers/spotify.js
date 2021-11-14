@@ -39,7 +39,6 @@ const getTopArtists = async (req, res) => {
             time_range: timeRange,
             limit: 50
         })
-
         res.json({
             topArtists: data.body.items
         })     

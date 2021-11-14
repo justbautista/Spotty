@@ -33,10 +33,11 @@ const runExpirationTimer = () => {
     }
 
     const expiresIn = getExpirationTime() - new Date().getTime()
+    console.log(expiresIn)
     expirationTimer = setTimeout(async () => {
         await refreshAccessToken()
         runExpirationTimer()
-    }, expiresIn)
+    }, expiresIn - 10000)
 }
 
 const checkLoggedIn = async () => {
@@ -49,7 +50,7 @@ const checkLoggedIn = async () => {
         window.location.reload()
         return
     }
-
+    
     runExpirationTimer()
     // const spotifyApi = new SpotifyWebApi()
     // spotifyApi.setAccessToken(getLocalAccessToken())

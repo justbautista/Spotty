@@ -4,10 +4,12 @@ import { logout } from './helpers/authenticators'
 import Nav from './Nav'
 import axios from './helpers/axios'
 import { getLocalAccessToken } from './helpers/local'
+import Track from './Track'
+import Artist from './Artist'
 
 export default function Dashboard() {
     const [type, setType] = useState('tracks')
-    const [timeRange, setTimeRange] = useState('long_term')
+    const [timeRange, setTimeRange] = useState('short_term')
     const [topTracks, setTopTracks] = useState([])
     const [topArtists, setTopArtists] = useState([])
     const accessToken = getLocalAccessToken()
@@ -35,11 +37,112 @@ export default function Dashboard() {
             return
         })
     }, [type, timeRange])
-    console.log(topTracks)
-    
+
+    function selectTypeTab(selected) {
+        const tracks = document.getElementById('tracks')
+        const artists = document.getElementById('artists')
+
+        if (selected == 'tracks' && tracks.classList.contains('active')) {
+            return
+        }
+        else if (selected == 'artists' && artists.classList.contains('active')) {
+            return
+        }
+        else {
+            tracks.classList.toggle('active')
+            artists.classList.toggle('active')
+            setType(selected)
+        }
+
+    }
+
+    function selectedTimeRangeTab(selected) {
+        const thisMonth = document.getElementById('this-month')
+        const last6Months = document.getElementById('last-6-months')
+        let prevTimeRangeTab = ''
+
+        if (thisMonth.classList.contains('active')) {
+            prevTimeRangeTab = 'this-month'
+        }
+        else if (last6Months.classList.contains('active')) {
+            prevTimeRangeTab = 'last-6-months'
+        }
+        else {
+            prevTimeRangeTab = 'all-time'
+        }
+
+        if (selected == prevTimeRangeTab) {
+            return
+        }
+        else {
+            document.getElementById(selected).classList.toggle('active')
+            document.getElementById(prevTimeRangeTab).classList.toggle('active')
+        }
+
+        if (selected == 'this-month') {
+            setTimeRange('short_term')
+        }
+        else if (selected == 'last-6-months') {
+            setTimeRange('medium_term')
+        }
+        else {
+            setTimeRange('long_term')
+        }
+    }
+
     return (
-        <div>
-            dashbaord
+        <div className='container w-75'>
+            <div className='d-flex flex-row justify-content-between my-3'>
+                <ul className='nav nav-pills'>
+                    <li style={{ cursor: 'pointer' }} className='nav-item'>
+                        <a className='nav-link active' id='tracks' onClick={() => {
+                            selectTypeTab('tracks')
+                        }}>Tracks</a>
+                    </li>
+                    <li style={{ cursor: 'pointer' }} className='nav-item'>
+                        <a className='nav-link' id='artists' onClick={() => {
+                            selectTypeTab('artists')
+                        }}>Artists</a>
+                    </li>
+                </ul>
+                <ul className='nav nav-pills'>
+                    <li style={{ cursor: 'pointer' }} className='nav-item'>
+                        <a className='nav-link active' id='this-month' onClick={() => {
+                            selectedTimeRangeTab('this-month')
+                        }}>This Month</a>
+                    </li>
+                    <li style={{ cursor: 'pointer' }} className='nav-item'>
+                        <a className='nav-link' id='last-6-months' onClick={() => {
+                            selectedTimeRangeTab('last-6-months')
+                        }}>Last 6 Months</a>
+                    </li>
+                    <li style={{ cursor: 'pointer' }} className='nav-item'>
+                        <a className='nav-link' id='all-time' onClick={() => {
+                            selectedTimeRangeTab('all-time')
+                        }}>All Time</a>
+                    </li>
+                </ul>
+            </div>
+            <ul className='list-group list-group-flush'>
+                {
+                    type == 'tracks' ?
+                    topTracks.map((track, index) => (
+                        <Track 
+                            track={ track }
+                            index={ index }
+                            key={ track.id }
+                        />
+                    )) 
+                    : 
+                    topArtists.map((artist, index) => (
+                        <Artist
+                            artist={ artist }
+                            index={ index }
+                            key={ artist.id }
+                        />
+                    ))
+                }
+            </ul>
         </div>
     )
 }

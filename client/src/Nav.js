@@ -4,13 +4,21 @@ import { logout } from './helpers/authenticators'
 
 export default function Nav() {
     return (
-        <div>
-            <nav>
-                <h1>spotty</h1>
-                <Link to=''>Dashboard</Link>
-                <button>Settings</button>
-                <button onClick={ logout }>Logout</button>
-            </nav>
+        <div className='container-fluid d-flex flex-column'>
+            <div className='container-fluid my-2'>
+                <nav className='row'>
+                    <div className='col d-flex align-items-center justify-content-start'>
+                        <h1>spotty</h1>
+                    </div>
+                    <div className='col d-flex align-items-center justify-content-center'>
+                        <Link to='' style={{ textDecoration: 'none', color: 'black' }}>Dashboard</Link>
+                    </div>
+                    <div className='col d-flex align-items-center justify-content-end'>
+                        <i style={{ fontSize: 25 }} className='bi bi-gear-fill'></i>
+                        <button className='btn btn-outline-danger btn-sm ms-3' onClick={ logout }>Logout</button>
+                    </div>
+                </nav>
+            </div>
 
             <Outlet />
         </div>

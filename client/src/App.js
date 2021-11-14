@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
+import "bootstrap-icons/font/bootstrap-icons.css";
 import Login from './Login';
 import Dashboard from './Dashboard';
 import { useState, useEffect } from 'react'
