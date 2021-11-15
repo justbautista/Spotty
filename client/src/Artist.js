@@ -19,7 +19,7 @@ export default function Artist({ artist, index }) {
             </div>
             <div>
                 <div className='progress ms-3' style={{ width: '100px' }}>
-                    <div className='progress-bar' style={{ width: `${artist.popularity}%` }}></div>
+                    <div className='progress-bar' style={{ width: `${artist.popularity}%`, backgroundColor: '#1DB954' }}></div>
                 </div>
             </div>
         </li>
