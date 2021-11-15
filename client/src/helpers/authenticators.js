@@ -1,5 +1,4 @@
 import axios from './axios'
-import SpotifyWebApi from 'spotify-web-api-node'
 import {
     setLocalAccessToken,
     getLocalAccessToken,
