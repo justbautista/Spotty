@@ -1,7 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Outlet } from 'react-router'
-import { logout } from './helpers/authenticators'
-import Nav from './Nav'
 import axios from './helpers/axios'
 import { getLocalAccessToken } from './helpers/local'
 import Track from './Track'
