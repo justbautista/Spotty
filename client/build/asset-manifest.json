@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.501faa63.chunk.css",
+    "main.js": "/static/js/main.bb7d609b.chunk.js",
+    "main.js.map": "/static/js/main.bb7d609b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.71c5bbf3.js",
+    "runtime-main.js.map": "/static/js/runtime-main.71c5bbf3.js.map",
+    "static/css/2.63101985.chunk.css": "/static/css/2.63101985.chunk.css",
+    "static/js/2.78c91d1e.chunk.js": "/static/js/2.78c91d1e.chunk.js",
+    "static/js/2.78c91d1e.chunk.js.map": "/static/js/2.78c91d1e.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.63101985.chunk.css.map": "/static/css/2.63101985.chunk.css.map",
+    "static/css/main.501faa63.chunk.css.map": "/static/css/main.501faa63.chunk.css.map",
+    "static/js/2.78c91d1e.chunk.js.LICENSE.txt": "/static/js/2.78c91d1e.chunk.js.LICENSE.txt",
+    "static/media/Spotify_Icon_RGB_White.ecd54051.png": "/static/media/Spotify_Icon_RGB_White.ecd54051.png",
+    "static/media/bird-white.5b765ff2.png": "/static/media/bird-white.5b765ff2.png",
+    "static/media/bootstrap-icons.css": "/static/media/bootstrap-icons.7165e5d7.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.71c5bbf3.js",
+    "static/css/2.63101985.chunk.css",
+    "static/js/2.78c91d1e.chunk.js",
+    "static/css/main.501faa63.chunk.css",
+    "static/js/main.bb7d609b.chunk.js"
+  ]
+}
