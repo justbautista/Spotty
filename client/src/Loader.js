@@ -2,8 +2,6 @@ import React from 'react'
 
 export default function Loader() {
     return (
-        <div>
-            LOADING COMPONENT...
-        </div>
+        <div className='container' style={{ height: '100vh', backgroundColor: 'white' }}></div>
     )
 }

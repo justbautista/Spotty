@@ -16,7 +16,7 @@ const logout = () => {
 
 const refreshAccessToken = () => {
     const localRefreshToken = getLocalRefreshToken()
-    
+
     axios.post('/auth/refresh', { localRefreshToken })
     .then(res => {
         setLocalAccessToken(res.data.accessToken)
@@ -33,10 +33,11 @@ const runExpirationTimer = () => {
     }
 
     const expiresIn = getExpirationTime() - new Date().getTime()
+    console.log(expiresIn)
     expirationTimer = setTimeout(async () => {
         await refreshAccessToken()
         runExpirationTimer()
-    }, expiresIn)
+    }, expiresIn - 10000)
 }
 
 const checkLoggedIn = async () => {
@@ -46,18 +47,20 @@ const checkLoggedIn = async () => {
 
     if (new Date().getTime() > getExpirationTime()) {
         await refreshAccessToken()
-        window.location.reload()
+        //window.location.reload()
         return
     }
-
-    const spotifyApi = new SpotifyWebApi()
-    spotifyApi.setAccessToken(getLocalAccessToken())
-    try {
-        await spotifyApi.getMe()
-        runExpirationTimer()
-    } catch (error) {
-        throw error
-    }
+    
+    runExpirationTimer()
+    // const spotifyApi = new SpotifyWebApi()
+    // spotifyApi.setAccessToken(getLocalAccessToken())
+    
+    // try {
+    //     await spotifyApi.getMe()
+    //     runExpirationTimer()
+    // } catch (error) {
+    //     console.log('error')
+    // }
 }
 
 export {

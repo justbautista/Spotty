@@ -1,0 +1,36 @@
+@media screen and (min-width: 900px) {
+    #top-items-container {
+        width: 75%;
+    }
+}
+
+body {
+    background-color: black;
+}
+
+.list-group {
+    border-radius: 10px;
+}
+
+.list-group-item {
+    background-color: #191414;
+    color: white;
+}
+
+.list-group-flush>.list-group-item {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link {
+    color: #2abe5e;
+}
+
+.nav-link:hover {
+    color: #19a149;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #1DB954;
+}
+
+
