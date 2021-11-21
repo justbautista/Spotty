@@ -25,7 +25,7 @@ const login = async (req, res) => {
 
 const refresh = async (req, res) => {
     const refreshToken = req.body.refreshToken
-    
+
     const spotifyApi = new SpotifyWebApi({
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
@@ -35,7 +35,7 @@ const refresh = async (req, res) => {
 
     try {
         const data = await spotifyApi.refreshAccessToken()
-        
+       
         res.json({
             accessToken: data.body.access_token
         })
