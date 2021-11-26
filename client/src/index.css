@@ -38,12 +38,12 @@ body {
 }
 
 #track-rank {
-    width: 20px;
+    min-width: 18px;
     text-align: center;
 }
 
 #artist-rank {
-    width: 20px;
+    min-width: 18px;
     text-align: center;
 }
 
@@ -57,16 +57,19 @@ body {
     #type {
         display: flex;
         flex-direction: column;
+        text-align: center;
+        font-size: 12px;
     }
 
     #time-range {
         display: flex;
         flex-direction: column;
         text-align: center;
+        font-size: 12px;
     }
 
     #track small {
-        font-size: 10px;
+        font-size: 8px;
     }
 
     #track h6 {
@@ -74,7 +77,7 @@ body {
     }
 
     #artist small {
-        font-size: 10px;
+        font-size: 8px;
     }
 
     #artist h5 {
