@@ -93,7 +93,7 @@ export default function Dashboard() {
                 <h1 style={{ textTransform: 'capitalize', margin: '0', color: 'white'}}>Top { type }</h1>
             </div>
             <div className='d-flex flex-row justify-content-between my-3' style={{ fontSize: '12px' }}>
-                <ul className='nav nav-pills'>
+                <ul className='nav nav-pills' id='type'>
                     <li style={{ cursor: 'pointer' }} className='nav-item'>
                         <a className='nav-link active' id='tracks' onClick={() => {
                             selectTypeTab('tracks')
@@ -105,7 +105,7 @@ export default function Dashboard() {
                         }}>Artists</a>
                     </li>
                 </ul>
-                <ul className='nav nav-pills'>
+                <ul className='nav nav-pills' id='time-range'>
                     <li style={{ cursor: 'pointer' }} className='nav-item'>
                         <a className='nav-link active' id='this-month' onClick={() => {
                             selectedTimeRangeTab('this-month')
@@ -123,7 +123,7 @@ export default function Dashboard() {
                     </li>
                 </ul>
             </div>
-            <ul className='list-group list-group-flush overflow-auto' style={{ height: '100%' }}>
+            <ul className='list-group list-group-flush' style={{ height: '100%' }}>
                 {
                     type == 'tracks' ?
                     topTracks.map((track, index) => (
