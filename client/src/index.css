@@ -37,6 +37,16 @@ body {
     height: 75px;
 }
 
+#track-rank {
+    width: 20px;
+    text-align: center;
+}
+
+#artist-rank {
+    width: 20px;
+    text-align: center;
+}
+
 @media screen and (min-width: 900px) {
     #top-items-container {
         width: 75%;
