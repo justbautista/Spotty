@@ -5,7 +5,7 @@ export default function Track({ track, index }) {
     const songLength = formatSongLength(track.duration_ms)
 
     return (
-        <li className='list-group-item d-flex justify-content-between align-items-center'>
+        <li className='list-group-item d-flex justify-content-between align-items-center' id='track'>
             <div className='d-flex flex-row align-items-center justify-content-around me-3'>
                 <small>{ index + 1 }</small>
                 <img className='mx-3' src={ track.album.images[track.album.images.length - 1].url } height='50px'></img>
