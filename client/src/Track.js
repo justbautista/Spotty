@@ -7,7 +7,7 @@ export default function Track({ track, index }) {
     return (
         <li className='list-group-item d-flex justify-content-between align-items-center' id='track'>
             <div className='d-flex flex-row align-items-center justify-content-around me-3'>
-                <small>{ index + 1 }</small>
+                <small id='track-rank'>{ index + 1 }</small>
                 <img className='mx-3' src={ track.album.images[track.album.images.length - 1].url } height='50px'></img>
                 <div className='d-flex flex-column'>
                     <h6>{ track.name }</h6>
