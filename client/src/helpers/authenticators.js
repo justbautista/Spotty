@@ -7,9 +7,9 @@ import {
 } from './local'
 
 const logout = () => {
-    localStorage.removeItem('spotify_access_token')
-    localStorage.removeItem('spotify_refresh_token')
-    localStorage.removeItem('spotify_expiration_time')
+    sessionStorage.removeItem('spotify_access_token')
+    sessionStorage.removeItem('spotify_refresh_token')
+    sessionStorage.removeItem('spotify_expiration_time')
     window.location.reload()
 }
 
@@ -43,12 +43,13 @@ const checkLoggedIn = async () => {
         throw new Error('Missing access token')
     }
 
-    if (new Date().getTime() > getExpirationTime()) {
-        await refreshAccessToken()
-        window.location.reload()
-        return
-    }
-    
+    // if (new Date().getTime() > getExpirationTime()) {
+    //     await refreshAccessToken()
+    //     window.location.reload()
+    //     return
+    // }
+
+    await refreshAccessToken()
     runExpirationTimer()
 }
 
