@@ -13,7 +13,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         if (type != 'tracks') return
-
+        
         axios.post('/spotify/topTracks', { timeRange, accessToken })
         .then((res) => {
             setTopTracks(res.data.topTracks)
