@@ -19,7 +19,10 @@ const login = async (req, res) => {
             expiresIn: data.body.expires_in
         })
     } catch (error) {
-        throw error
+        // throw error
+        res.status(500).json({
+            message: "Internal Server Error"
+        })
     }
 }
 
@@ -40,7 +43,10 @@ const refresh = async (req, res) => {
             accessToken: data.body.access_token
         })
     } catch (error) {
-        throw error
+        // throw error
+        res.status(500).json({
+            message: "Internal Server Error"
+        })
     }
 }
 

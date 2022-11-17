@@ -28,7 +28,9 @@ export default function Login() {
             setLoading(false)
             return
         }
-        
+
+        //should i put an axios request before this one
+
         axios.post('/auth/login', { code })
         .then(res => {
             setLocalAccessToken(res.data.accessToken)
@@ -38,6 +40,7 @@ export default function Login() {
         })
         .catch((error) => {
             setLoading(false)
+            console.log(error.message)
             return
         })        
     }, [])

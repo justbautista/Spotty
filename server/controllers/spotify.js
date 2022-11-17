@@ -20,7 +20,10 @@ const getTopTracks = async (req, res) => {
             topTracks: data.body.items
         })     
     } catch (error) {
-        throw error
+        // throw error
+        res.status(500).json({
+            message: "Internal Server Error"
+        })
     }
 }
 
@@ -44,8 +47,35 @@ const getTopArtists = async (req, res) => {
             topArtists: data.body.items
         })     
     } catch (error) {
-        throw error
+        // throw error
+        res.status(500).json({
+            message: "Internal Server Error"
+        })
     }
 }
 
-module.exports = { getTopTracks, getTopArtists }
+const getMe = async (req, res) => {
+    const accessToken = req.body.accessToken
+
+    const spotifyApi = new SpotifyWebApi({
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        accessToken: accessToken
+    })
+
+    try {
+        const data = await spotifyApi.getMe()
+
+        res.json(data.body)
+
+    } catch (error) {
+        // throw error
+        res.status(401).json({
+            message: "Account used isn't authorized by the owner of the website"
+        })
+        //authorize user with creator before using these features 
+        //change throws to res.status or whatever to return errors to client, json
+    }
+}
+
+module.exports = { getTopTracks, getTopArtists, getMe }

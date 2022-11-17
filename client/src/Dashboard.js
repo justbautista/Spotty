@@ -19,6 +19,7 @@ export default function Dashboard() {
             setTopTracks(res.data.topTracks)
         })
         .catch((error) => {
+            console.log(error.message)
             return
         })
     }, [type, timeRange])
@@ -31,6 +32,7 @@ export default function Dashboard() {
             setTopArtists(res.data.topArtists)
         })
         .catch((error) => {
+            console.log(error.message)
             return
         })
     }, [type, timeRange])
@@ -88,7 +90,7 @@ export default function Dashboard() {
     }
 
     return (
-        <div className='container-fluid' id='top-items-container'>
+        <div className='container-fluid mb-5' id='top-items-container'>
             <div className='container-fluid text-center my-5'>
                 <h1 style={{ textTransform: 'capitalize', margin: '0', color: 'white'}}>Top { type }</h1>
             </div>
