@@ -3,7 +3,7 @@ const router = express.Router()
 const cors = require('cors')
 
 const corsOptions = {
-    origin: 'https://songbirdapp.netlify.app'
+    origin: 'https://songbirdapp.netlify.app/'
 }
 
 const { login, refresh } = require('../controllers/auth')
