@@ -4,9 +4,7 @@ const cors = require('cors')
 const app = express()
 
 //middleware
-app.use(cors({
-  origin: true
-}))
+app.use(cors({ origin: 'https://songbirdapp.netlify.app' , credentials :  true}));
 app.use(express.json())
 
 //routers
