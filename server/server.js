@@ -1,10 +1,10 @@
 require('dotenv').config()
 const express = require('express')
-const cors = require('cors')
 const app = express()
+const cors = require('cors')
 
 //middleware
-app.options('*', cors())
+app.options(cors({ origin: "https://songbirdapp.netlify.app", credentials: true }))
 app.use(express.json())
 
 //routers
