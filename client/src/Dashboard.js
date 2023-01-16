@@ -123,7 +123,7 @@ export default function Dashboard() {
                     </li>
                 </ul>
             </div>
-            <ul className='list-group list-group-flush' style={{ height: '100%' }}>
+            <ul className='list-group list-group-flush mb-5' style={{ height: '100%' }}>
                 {
                     type == 'tracks' ?
                     topTracks.map((track, index) => (
