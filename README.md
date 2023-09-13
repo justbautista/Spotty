@@ -1,7 +1,9 @@
 
 # songbird
 
-A website that allows you to view your Spotify Top 50 artists and tracks from various time frames, including this month, the past six months, and of all time. Unlike Spotify's annual listening stats that only display the Top 5 artists and tracks, this website provides extensive data for any time of the year, offering a deeper insight into your music preferences.
+I love listening to music on Spotify and I am always excited towards the end of the year when I get to see my Spotify Wrapped. However, Spotify only reveals the Top 5 artists and tracks and this only happens once a year. Upon looking at the Spotify API's documentation, I found that I can get access to a lot more data.
+
+So I built a website that allows you to view your Spotify Top 50 artists and tracks from various time frames, including this month, the past six months, and of all time. Unlike Spotify's annual listening stats that only display the Top 5 artists and tracks, this website provides extensive data for any time of the year, offering a deeper insight into your music preferences.
 
 **Link:** https://songbirdapp.netlify.app/
 ## Tech Stack
